@@ -25,5 +25,8 @@ pip/pip3 install -r requirements.txt -f https://download.pytorch.org/whl/nightly
 
 # How to run
 
-python ./query_video.py --input_video <video file> --query_file <query text file> --config_file ./config.json
+  python ./query_video.py --input_video <video file> --query_file <query text file> --config_file ./config.json
 
+By default, it will run frame-by-frame which may be unnecessary for video files. You can change the run sampling rate by running as follows:
+
+  python ./query_video.py --input_video <video file> --query_file <query text file> --config_file ./config.json --sample_rate 10

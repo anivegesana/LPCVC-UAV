@@ -1,4 +1,4 @@
 opencv-python
 numpy
+# will need to a link to pytorch nightly builds: -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
 torch>=torch-1.5.0.dev20200305
-torchvision

@@ -1,4 +1,4 @@
-Overview
+# Overview
 
 This baseline OCR solution is a two step solution involving: 1) a text detection step, and 2) a text recognition step. The detection step (1), finds arbitrary rotated bounding boxes of text within a given image. It uses a Faster-RCNN detection architecture with a rotation RPN [1]. The trunk is based on the dmasking model from the FBNet family for efficiency [2]. The recognition step (2) is run on image patches cropped from the original image to recognize single words from the bounding box. It is based on the character sequence encoding (CHAR) as proposed in [3]. The trunk is based on the fbnet_c model from the FBNet family for efficiency [2].
 
@@ -16,9 +16,14 @@ The models were trained with publicly available datasets. For the text detection
 
 [6] M. Jaderberg, K. Simonyan, A. Vedaldi, and A. Zisserman, “Reading Text in the Wild with Convolutional Neural Networks”, in IJCV, 2016
 
+# Prerequisites
+
+Sources depends on opencv, numpy, and pytorch. The model uses an RRPN that was not released with 1.4 so we need to link to nightly builds for requirements. Install dependencies as follows:
+
+pip/pip3 install -r requirements.txt -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
 
 
-How to run
+# How to run
 
 python ./query_video.py --input_video <video file> --query_file <query text file> --config_file ./config.json
 

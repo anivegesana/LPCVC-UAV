@@ -18,7 +18,7 @@ The models were trained with publicly available datasets. For the text detection
 
 # Prerequisites
 
-Sources depends on opencv, numpy, and pytorch. The model uses an RRPN that was not released with 1.4 so we need to link to nightly builds for requirements. Install dependencies as follows:
+Sources depend on opencv, numpy, and pytorch. The model uses an RRPN that was not released with 1.4 so we need to link to nightly builds for requirements. Install dependencies as follows:
 
 pip/pip3 install -r requirements.txt -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
 

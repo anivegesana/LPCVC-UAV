@@ -12,7 +12,7 @@ from ocr_lib import OCRLib
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Run OCR model on a image or directory of images"
+        description="Run OCR on a video"
     )
     parser.add_argument(
         "--input_video", help="Path to the input video", type=str, required=True

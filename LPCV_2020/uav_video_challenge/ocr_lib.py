@@ -6,6 +6,7 @@ import math
 import cv2
 import numpy as np
 import torch
+import os
 
 
 class OCRLib:
@@ -13,10 +14,14 @@ class OCRLib:
         with open(config_file, "r") as h_config:
             self.config = json.load(h_config)
 
+        dirname = os.path.dirname(__file__)
+
         if det_model_path is None:
             det_model_path = self.config["det_model"]
+            det_model_path = os.path.join(dirname, det_model_path)
         if ocr_model_path is None:
             ocr_model_path = self.config["ocr_model"]
+            ocr_model_path = os.path.join(dirname, ocr_model_path)
 
         self.detector = OCRLib.Detection(
             model_path=det_model_path,

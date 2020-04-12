@@ -113,19 +113,23 @@ def query_video(
     with open(query_file, "r") as f_query:
         queries = f_query.read().replace(" ", "").replace("\n", "").split(";")
 
-    for query in queries:
-        if query not in txt2frm:
-            print("{}: -;".format(query))
-        else:
-            frms = txt2frm[query]
-            outputs = ""
-            if len(frms) == 1:
-                outputs = " ".join([x for x in frm2txt[frms[0]] if x != query])
+    with open("answers.txt", "w", newline='') as f:
+        for query in queries:
+            if query not in txt2frm:
+                q_ans = ("{}: -;".format(query))
             else:
-                for frm in frms:
-                    outputs += " frame_{} ".format(frm)
-                    outputs += " ".join([x for x in frm2txt[frm] if x != query])
-            print("{}: {};".format(query, outputs))
+                frms = txt2frm[query]
+                outputs = ""
+                if len(frms) == 1:
+                    outputs = " ".join([x for x in frm2txt[frms[0]] if x != query])
+                else:
+                    for frm in frms:
+                        outputs += " frame_{} ".format(frm)
+                        outputs += " ".join([x for x in frm2txt[frm] if x != query])
+                q_ans = ("{}: {};".format(query, outputs))
+            # output save to a actual file
+            print(q_ans)
+            f.write(q_ans)
 
 
 if __name__ == "__main__":
